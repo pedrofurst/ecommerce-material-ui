@@ -9,11 +9,12 @@ import useStyles from './styles';
 type CartPropsType = {
   cart: CartType;
   removeFromCart: (product: ProductType) => void;
+  onCheckout: () => void;
 };
 
 function Cart(props: CartPropsType) {
   const classes = useStyles();
-  const { cart, removeFromCart } = props;
+  const { cart, removeFromCart, onCheckout } = props;
   const { products } = cart;
 
   const total = useMemo(
@@ -86,7 +87,7 @@ function Cart(props: CartPropsType) {
               </div>
             </div>
             <div className={classes.proceedToCheckoutContainer}>
-              <Button variant="outlined" color="primary">
+              <Button variant="outlined" color="primary" onClick={onCheckout}>
                 Proceed to checkout
               </Button>
             </div>
