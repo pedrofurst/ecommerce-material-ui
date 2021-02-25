@@ -51,13 +51,9 @@ function TopBar(props: TopBarPropsType) {
           <div className={classes.row}>
             <Link href="/" onClick={() => {}} color="inherit">
               <Typography variant="h6" noWrap className={classes.topBarTitle}>
-                Ecommerce
+                Shop
               </Typography>
             </Link>
-
-            <Button color="inherit" onClick={() => {}}>
-              <Typography>Sign Out</Typography>
-            </Button>
           </div>
           <div className={clsx(classes.row, classes.bottomRow)}>
             <div className={classes.menuContainer}>

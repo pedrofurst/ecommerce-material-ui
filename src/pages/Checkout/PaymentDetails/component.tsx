@@ -40,13 +40,15 @@ function PaymentDetails(props: PaymentDetailsPropsType) {
 
   return (
     <>
-      <Card
-        name={creditCard.name}
-        number={creditCard.number}
-        expiry={creditCard.expiry}
-        cvc={creditCard.cvc}
-        focused={focused}
-      />
+      <div className={classes.cardContainer}>
+        <Card
+          name={creditCard.name}
+          number={creditCard.number}
+          expiry={creditCard.expiry}
+          cvc={creditCard.cvc}
+          focused={focused}
+        />
+      </div>
       <div className={classes.creditCardContainer}>
         <Grid container spacing={3}>
           <Grid item xs={12}>

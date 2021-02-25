@@ -11,11 +11,17 @@ function CartContainer() {
     () => history.push('/checkout'),
     [history]
   );
+
+  const handleOnBack = useCallback(() => {
+    history.goBack();
+  }, [history]);
+
   return (
     <Cart
       cart={cart}
       removeFromCart={removeFromCart}
       onCheckout={handleNavigateToCheckout}
+      onGoBack={handleOnBack}
     />
   );
 }

@@ -6,4 +6,14 @@ export default makeStyles((theme: Theme) => ({
       paddingTop: theme.spacing(6),
     },
   },
+  cardContainer: {
+    '& .rccs__card': {
+      width: '90%',
+    },
+    [theme.breakpoints.up('sm')]: {
+      '& .rccs__card': {
+        width: '100%',
+      },
+    },
+  },
 }));

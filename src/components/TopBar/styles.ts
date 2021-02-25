@@ -21,6 +21,7 @@ export default makeStyles((theme: Theme) => ({
   topBarTitle: {
     fontWeight: 'bold',
     fontSize: 24,
+    paddingLeft: theme.spacing(),
   },
   appBar: {
     background:

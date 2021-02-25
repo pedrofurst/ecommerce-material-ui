@@ -39,15 +39,17 @@ function ProductDetail(props: ProductDetailPropsType) {
       <div className={classes.imageContainer}>
         <img src={image} alt="ProductImage" className={classes.productImage} />
       </div>
-      <div className={classes.infoContainer}>
-        <Typography className={classes.title}>{title}</Typography>
-        <div className={classes.descriptionContainer}>
-          <Typography>{description}</Typography>
-        </div>
-        <div>
-          <Typography className={classes.inStock}>In Stock</Typography>
-          <Typography className={classes.price}>${price.toFixed(2)}</Typography>
-        </div>
+      <Typography className={classes.title} noWrap>
+        {title}
+      </Typography>
+      <div className={classes.descriptionContainer}>
+        <Typography>{description}</Typography>
+      </div>
+      <div className={classes.priceContainer}>
+        <Typography className={classes.inStock}>In Stock</Typography>
+        <Typography className={classes.price}>${price.toFixed(2)}</Typography>
+      </div>
+      <div className={classes.actionButtonContainer}>
         {isAddedOnCart ? (
           <Button
             onClick={handleRemoveFromCart}

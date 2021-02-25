@@ -8,6 +8,7 @@ export default makeStyles((theme: Theme) => ({
     alignItems: 'center',
     width: '80vw',
     position: 'relative',
+    overflow: 'hidden',
 
     margin: 0,
     [theme.breakpoints.down('md')]: {
@@ -25,35 +26,79 @@ export default makeStyles((theme: Theme) => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
-    padding: theme.spacing(5),
+    padding: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(5),
+    },
   },
 
   rowContainer: {
-    display: 'flex',
+    display: 'grid',
+    gridTemplateRows: '50px 128px 1fr',
+    gridTemplateAreas: `
+    "title"
+    "image"
+    "price"
+  `,
+    padding: theme.spacing(4),
+    width: '100%',
     alignItems: 'center',
     borderBottom: '1px solid #e6e6e6',
-    height: 120,
+    flexDirection: 'column',
+    [theme.breakpoints.up('sm')]: {
+      flexDirection: 'row',
+      gridTemplateRows: '1fr',
+      gridTemplateColumns: '120px 1fr 240px',
+      gridTemplateAreas: `
+      "image title price"
+    `,
+    },
   },
-  productInfo: {
-    display: 'grid',
-    width: '100%',
-    gridTemplateColumns: '1fr 240px',
-    alignItems: 'center',
+  imageContainer: {
+    gridArea: 'image',
+    justifyContent: 'center',
+    display: 'flex',
   },
   image: {
-    height: 120,
     width: 120,
+    [theme.breakpoints.up('sm')]: {
+      height: 120,
+      width: 120,
+    },
     objectFit: 'contain',
     padding: theme.spacing(3),
   },
-  title: { fontSize: 16, fontWeight: 'bold' },
+  titleContainer: {
+    gridArea: 'title',
+    width: '100%',
+    overflow: 'hidden',
+  },
+  title: {
+    fontSize: '1em',
+    textAlign: 'center',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '1.2em',
+      textAlign: 'start',
+    },
+  },
   priceContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    marginTop: theme.spacing(),
+    [theme.breakpoints.up('sm')]: {
+      justifyContent: 'flex-end',
+      flexDirection: 'row',
+      marginTop: 0,
+    },
+    gridArea: 'price',
   },
   price: {
-    fontSize: 24,
+    fontSize: '1.5em',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '2em',
+    },
     fontWeight: 'bold',
     textAlign: 'end',
   },
@@ -61,7 +106,10 @@ export default makeStyles((theme: Theme) => ({
     marginLeft: theme.spacing(),
   },
   total: {
-    fontSize: 24,
+    fontSize: '1em',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '2em',
+    },
     fontWeight: 'bold',
     textAlign: 'end',
   },
@@ -80,17 +128,31 @@ export default makeStyles((theme: Theme) => ({
     display: 'flex',
     flex: 1,
     height: '100%',
-    padding: theme.spacing(5),
-    paddingRight: 0,
-    alignItems: 'flex-end',
+    [theme.breakpoints.up('sm')]: {
+      alignItems: 'flex-end',
+      justifyContent: 'flex-end',
+    },
     flexDirection: 'column',
   },
   totalRow: {
     display: 'flex',
     flex: 1,
-    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginBottom: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      justifyContent: 'flex-end',
+    },
+    justifyContent: 'center',
     '& p': {
       padding: theme.spacing(1),
+    },
+  },
+  bottomContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    padding: theme.spacing(1),
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(4),
     },
   },
 }));

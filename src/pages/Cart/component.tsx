@@ -10,11 +10,12 @@ type CartPropsType = {
   cart: CartType;
   removeFromCart: (product: ProductType) => void;
   onCheckout: () => void;
+  onGoBack: () => void;
 };
 
 function Cart(props: CartPropsType) {
   const classes = useStyles();
-  const { cart, removeFromCart, onCheckout } = props;
+  const { cart, removeFromCart, onCheckout, onGoBack } = props;
   const { products } = cart;
 
   const total = useMemo(
@@ -33,7 +34,7 @@ function Cart(props: CartPropsType) {
     <Paper className={classes.cartContainer}>
       <IconButton
         aria-label="back"
-        onClick={() => {}}
+        onClick={onGoBack}
         className={classes.backButton}
       >
         <ArrowBackIcon />
@@ -49,32 +50,35 @@ function Cart(props: CartPropsType) {
           <>
             {products.map((product: ProductType) => (
               <div key={product.id} className={classes.rowContainer}>
-                <img
-                  src={product.image}
-                  alt="ImageRow"
-                  className={classes.image}
-                />
-                <div className={classes.productInfo}>
+                <div className={classes.imageContainer}>
+                  <img
+                    src={product.image}
+                    alt="ImageRow"
+                    className={classes.image}
+                  />
+                </div>
+
+                <div className={classes.titleContainer}>
                   <Typography className={classes.title} noWrap>
                     {product.title}
                   </Typography>
-                  <div className={classes.priceContainer}>
-                    <Typography className={classes.price}>
-                      ${product.price.toFixed(2)}
-                    </Typography>
-                    <IconButton
-                      aria-label="remove from shopping cart"
-                      onClick={handleRemoveFromCart(product)}
-                      className={classes.removeButton}
-                      color="secondary"
-                    >
-                      <RemoveShoppingCartIcon />
-                    </IconButton>
-                  </div>
+                </div>
+                <div className={classes.priceContainer}>
+                  <Typography className={classes.price}>
+                    ${product.price.toFixed(2)}
+                  </Typography>
+                  <IconButton
+                    aria-label="remove from shopping cart"
+                    onClick={handleRemoveFromCart(product)}
+                    className={classes.removeButton}
+                    color="secondary"
+                  >
+                    <RemoveShoppingCartIcon />
+                  </IconButton>
                 </div>
               </div>
             ))}
-            <div className={classes.rowContainer}>
+            <div className={classes.bottomContainer}>
               <div className={classes.totalRow}>
                 <Typography className={classes.total}>
                   {`Total (${products.length} ${
@@ -85,11 +89,11 @@ function Cart(props: CartPropsType) {
                   ${total.toFixed(2)}
                 </Typography>
               </div>
-            </div>
-            <div className={classes.proceedToCheckoutContainer}>
-              <Button variant="outlined" color="primary" onClick={onCheckout}>
-                Proceed to checkout
-              </Button>
+              <div className={classes.proceedToCheckoutContainer}>
+                <Button variant="outlined" color="primary" onClick={onCheckout}>
+                  Proceed to checkout
+                </Button>
+              </div>
             </div>
           </>
         )}
