@@ -10,7 +10,6 @@ import {
 } from '@material-ui/core';
 import { ReactElement } from 'react';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import clsx from 'clsx';
 import SearchIcon from '@material-ui/icons/Search';
 import useStyles from './styles';
 import { CartType } from '../../features/providers/cart/model';
@@ -32,38 +31,38 @@ function TopBar(props: TopBarPropsType) {
   return (
     <AppBar position="fixed" className={classes.appBar}>
       <Toolbar disableGutters className={classes.toolBar}>
-        <div className={classes.searchContainer}>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-        </div>
         <div className={classes.toolbarContainer}>
-          <div className={classes.row}>
-            <Link href="/" onClick={() => {}} color="inherit">
+          <div className={classes.logoContainer}>
+            <Link href="/" color="inherit">
               <Typography variant="h6" noWrap className={classes.topBarTitle}>
                 Shop
               </Typography>
             </Link>
           </div>
-          <div className={clsx(classes.row, classes.bottomRow)}>
-            <div className={classes.menuContainer}>
-              <div className={classes.menuItem}>{categoriesMenu}</div>
-              <div className={classes.menuItem}>
-                <Button color="inherit" onClick={() => {}}>
-                  <Typography>Favorites</Typography>
-                </Button>
+          <div className={classes.searchContainer}>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
               </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ 'aria-label': 'search' }}
+              />
             </div>
+          </div>
+          <div className={classes.menuContainer}>
+            <div className={classes.menuItem}>{categoriesMenu}</div>
+            <div className={classes.menuItem}>
+              <Button color="inherit">
+                <Typography>Favorites</Typography>
+              </Button>
+            </div>
+          </div>
+          <div className={classes.cartButton}>
             <IconButton
               aria-label="show cart count"
               color="inherit"

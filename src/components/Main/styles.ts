@@ -14,10 +14,13 @@ export default makeStyles((theme: Theme) => ({
     overflow: 'auto',
   },
   container: {
-    paddingTop: 100,
+    paddingTop: theme.spacing(5),
     paddingBottom: theme.spacing(4),
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: 100,
+    },
   },
 }));

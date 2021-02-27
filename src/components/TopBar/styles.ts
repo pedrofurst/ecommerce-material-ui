@@ -1,22 +1,26 @@
 import { fade, makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles((theme: Theme) => ({
-  grow: {
-    flexGrow: 1,
-    display: 'flex',
-    justifyContent: 'center',
-  },
   toolBar: {
     position: 'relative',
-    height: '100%',
   },
   toolbarContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    flex: 1,
+    display: 'grid',
     maxWidth: 1280,
     margin: 'auto',
-    paddingRight: 8,
+    width: '100%',
+    alignItems: 'center',
+    gridTemplate: `
+    "logo search cart"
+  `,
+    [theme.breakpoints.up('sm')]: {
+      gridTemplateRows: '1fr 1fr',
+      gridTemplateColumns: '30% 40% 30%',
+      gridTemplate: `
+      "logo search cart "
+      "menu search cart" 
+    `,
+    },
   },
   topBarTitle: {
     fontWeight: 'bold',
@@ -28,16 +32,14 @@ export default makeStyles((theme: Theme) => ({
       'linear-gradient(90deg, rgba(	2, 98, 157,1) 1%, rgba(24,144,133, 1) 50%, rgba(	2, 98, 157,1) 100%)',
     color: 'white',
     [theme.breakpoints.up('sm')]: {
-      height: 100,
+      maxHeight: 100,
     },
     padding: '0 16px',
   },
   searchContainer: {
+    gridArea: 'search',
     display: 'flex',
-    justifyContent: 'center',
-    position: 'absolute',
-    left: 0,
-    right: 0,
+    justifyContent: 'flex-end',
   },
   search: {
     position: 'relative',
@@ -47,11 +49,9 @@ export default makeStyles((theme: Theme) => ({
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginRight: 0,
-    marginLeft: theme.spacing(2),
-    width: 150,
+    width: '95%',
     [theme.breakpoints.up('sm')]: {
-      marginRight: theme.spacing(3),
-      width: '25%',
+      width: '100%',
     },
   },
   searchIcon: {
@@ -76,19 +76,16 @@ export default makeStyles((theme: Theme) => ({
       width: '20ch',
     },
   },
-  row: {
-    display: 'flex',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-between',
+  logoContainer: {
+    gridArea: 'logo',
   },
-  bottomRow: {
+  cartButton: {
+    gridArea: 'cart',
+    display: 'flex',
     justifyContent: 'flex-end',
-    [theme.breakpoints.up('sm')]: {
-      justifyContent: 'space-between',
-    },
   },
   menuContainer: {
+    gridArea: 'menu',
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'flex',

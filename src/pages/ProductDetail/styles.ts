@@ -3,26 +3,28 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export default makeStyles((theme: Theme) => ({
   productDetailContainer: {
     display: 'grid',
-    height: '78vh',
     width: '80vw',
     overflow: 'hidden',
     position: 'relative',
     alignItems: 'center',
     margin: 0,
     padding: theme.spacing(2),
+    paddingTop: theme.spacing(5),
     [theme.breakpoints.down('md')]: {
       marginLeft: theme.spacing(5),
       marginRight: theme.spacing(5),
     },
-    gridTemplateRows: '50px 50px 1fr 100px 80px',
+    gridTemplateRows: '10% 30% 35% 20% 5%',
     gridTemplate: `
-    "."
     "title" 
     "image"
+    "description"
     "price"
     "button"
   `,
     [theme.breakpoints.up('sm')]: {
+      height: '78vh',
+      paddingTop: 0,
       gridTemplate: `
       "image title" 
       "image description"
@@ -33,8 +35,11 @@ export default makeStyles((theme: Theme) => ({
   },
   backButton: {
     position: 'absolute',
-    top: 16,
-    left: 16,
+    top: 8,
+    [theme.breakpoints.up('sm')]: {
+      top: 16,
+      left: 16,
+    },
   },
   title: {
     padding: theme.spacing(2),
@@ -72,10 +77,10 @@ export default makeStyles((theme: Theme) => ({
   descriptionContainer: {
     overflowY: 'auto',
     gridArea: 'description',
-    display: 'none',
-
+    maxHeight: '20vh',
+    padding: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
-      display: 'flex',
+      padding: 0,
       maxHeight: '25vh',
     },
   },

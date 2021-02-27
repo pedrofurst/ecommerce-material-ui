@@ -17,7 +17,9 @@ export default makeStyles((theme: Theme) => ({
   },
   stepper: {
     padding: theme.spacing(3, 0, 5),
-    width: '80%',
+    [theme.breakpoints.up('sm')]: {
+      width: '80%',
+    },
   },
   actionButtonsContainer: {
     padding: theme.spacing(3, 0, 0, 3),

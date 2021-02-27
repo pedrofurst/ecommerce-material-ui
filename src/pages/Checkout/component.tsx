@@ -17,7 +17,7 @@ type CheckoutPropsType = {};
 
 function Checkout(props: CheckoutPropsType) {
   const classes = useStyles();
-  const steps = ['Shipping address', 'Payment details', 'Review your order'];
+  const steps = ['Shipping', 'Payment', 'Review'];
   const [activeStep, setActiveStep] = useState(0);
 
   const handleStepNext = useCallback(() => {
