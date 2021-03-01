@@ -101,10 +101,12 @@ export default makeStyles((theme: Theme) => ({
   },
   productImage: {
     width: '30vw',
+    height: '30vh',
     objectFit: 'contain',
     [theme.breakpoints.up('sm')]: {
       justifyContent: 'flex-start',
       width: '20vw',
+      height: '50vh',
     },
   },
   actionButtonContainer: {
