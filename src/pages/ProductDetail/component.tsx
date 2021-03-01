@@ -43,7 +43,7 @@ function ProductDetail(props: ProductDetailPropsType) {
         {title}
       </Typography>
       <div className={classes.descriptionContainer}>
-        <Typography>{description}</Typography>
+        <Typography className={classes.description}>{description}</Typography>
       </div>
       <div className={classes.priceContainer}>
         <Typography className={classes.inStock}>In Stock</Typography>

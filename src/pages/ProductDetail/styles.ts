@@ -14,7 +14,6 @@ export default makeStyles((theme: Theme) => ({
       marginLeft: theme.spacing(5),
       marginRight: theme.spacing(5),
     },
-    gridTemplateRows: '10% 30% 35% 20% 5%',
     gridTemplate: `
     "title" 
     "image"
@@ -84,9 +83,16 @@ export default makeStyles((theme: Theme) => ({
       maxHeight: '25vh',
     },
   },
+  description: {
+    fontSize: 12,
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '1rem',
+    },
+  },
   imageContainer: {
     display: 'flex',
     justifyContent: 'center',
+    padding: theme.spacing(2),
     height: '90%',
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(5),
