@@ -100,7 +100,7 @@ export default makeStyles((theme: Theme) => ({
     gridArea: 'image',
   },
   productImage: {
-    width: '90%',
+    width: '30vw',
     objectFit: 'contain',
     [theme.breakpoints.up('sm')]: {
       justifyContent: 'flex-start',
