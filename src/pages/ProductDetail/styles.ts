@@ -93,7 +93,6 @@ export default makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'center',
     padding: theme.spacing(2),
-    height: '90%',
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(5),
     },
