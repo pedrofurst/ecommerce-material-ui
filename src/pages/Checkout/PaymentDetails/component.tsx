@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Grid, TextField } from '@material-ui/core';
 import 'react-credit-cards/es/styles-compiled.css';
-import './customVariables.css';
 import Card, { Focused } from 'react-credit-cards';
 import useStyles from './styles';
 import { CreditCardType } from '../../../features/providers/checkout/model';
