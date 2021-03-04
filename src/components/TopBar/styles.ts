@@ -3,6 +3,7 @@ import { fade, makeStyles, Theme } from '@material-ui/core/styles';
 export default makeStyles((theme: Theme) => ({
   toolBar: {
     position: 'relative',
+    minHeight: 64,
   },
   toolbarContainer: {
     display: 'grid',
@@ -13,7 +14,7 @@ export default makeStyles((theme: Theme) => ({
     gridTemplate: `
     "logo search cart"
   `,
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       gridTemplateRows: '1fr 1fr',
       gridTemplateColumns: '30% 40% 30%',
       gridTemplate: `
@@ -31,7 +32,7 @@ export default makeStyles((theme: Theme) => ({
     background:
       'linear-gradient(90deg, rgba(	2, 98, 157,1) 1%, rgba(24,144,133, 1) 50%, rgba(	2, 98, 157,1) 100%)',
     color: 'white',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       maxHeight: 100,
     },
     padding: '0 16px',
@@ -87,7 +88,7 @@ export default makeStyles((theme: Theme) => ({
   menuContainer: {
     gridArea: 'menu',
     display: 'none',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'flex',
     },
   },

@@ -9,6 +9,7 @@ function Home(props: HomePropsType) {
   const { children } = props;
   const { getChildrenById } = useChildren(children);
   const productList = getChildrenById('product-list');
+
   return <>{productList}</>;
 }
 

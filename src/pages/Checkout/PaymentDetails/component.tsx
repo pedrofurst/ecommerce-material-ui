@@ -1,13 +1,16 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Grid, TextField } from '@material-ui/core';
 import 'react-credit-cards/es/styles-compiled.css';
 import Card, { Focused } from 'react-credit-cards';
 import useStyles from './styles';
 import { CreditCardType } from '../../../features/providers/checkout/model';
 
-type PaymentDetailsPropsType = {};
+type PaymentDetailsPropsType = {
+  updateCreditCard: (value: CreditCardType) => void;
+};
 
 function PaymentDetails(props: PaymentDetailsPropsType) {
+  const { updateCreditCard } = props;
   const classes = useStyles();
   const [focused, setFocused] = useState<Focused>();
   const [creditCard, setCreditCard] = useState<CreditCardType>({
@@ -16,6 +19,10 @@ function PaymentDetails(props: PaymentDetailsPropsType) {
     cvc: '',
     expiry: '',
   });
+
+  useEffect(() => {
+    updateCreditCard(creditCard);
+  }, [updateCreditCard, creditCard]);
 
   const handleChange = useCallback((event) => {
     const {

@@ -4,7 +4,7 @@ export default makeStyles((theme: Theme) => ({
   checkoutContainer: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '78vh',
+    height: '78vh',
     alignItems: 'center',
     width: '80vw',
     position: 'relative',
@@ -13,10 +13,11 @@ export default makeStyles((theme: Theme) => ({
     [theme.breakpoints.down('md')]: {
       marginLeft: theme.spacing(5),
       marginRight: theme.spacing(5),
+      minHeight: '88vh',
     },
   },
   stepper: {
-    padding: theme.spacing(3, 0, 5),
+    padding: theme.spacing(2, 0, 2),
     [theme.breakpoints.up('sm')]: {
       width: '80%',
     },

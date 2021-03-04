@@ -19,7 +19,7 @@ export default makeStyles((theme: Theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       paddingTop: 100,
     },
   },

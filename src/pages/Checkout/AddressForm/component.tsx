@@ -1,15 +1,46 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Grid, TextField } from '@material-ui/core';
 import useStyles from './styles';
+import { ShippingAddressType } from '../../../features/providers/checkout/model';
 
-export default function AddressForm() {
+type AddressFormType = {
+  updateShippingAddress: (value: ShippingAddressType) => void;
+};
+
+export default function AddressForm(props: AddressFormType) {
   const classes = useStyles();
+  const { updateShippingAddress } = props;
+
+  const [address, setAddress] = useState<ShippingAddressType>({
+    firstName: '',
+    lastName: '',
+    streetAddress: '',
+    city: '',
+    postcode: '',
+    country: '',
+    state: '',
+  });
+
+  useEffect(() => {
+    updateShippingAddress(address);
+  }, [address, updateShippingAddress]);
+
+  const handleChange = useCallback((event) => {
+    const {
+      target: { name, value },
+    } = event;
+    setAddress((currentAddress) => ({
+      ...currentAddress,
+      [name]: value,
+    }));
+  }, []);
+
   return (
     <div className={classes.shippingAddressContainer}>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
+            onChange={handleChange}
             required
             id="first-name"
             name="firstName"
@@ -20,6 +51,7 @@ export default function AddressForm() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            onChange={handleChange}
             required
             id="last-name"
             name="lastName"
@@ -30,9 +62,10 @@ export default function AddressForm() {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            onChange={handleChange}
             required
             id="street-address"
-            name="streetAdress"
+            name="streetAddress"
             label="Street Address"
             fullWidth
             autoComplete="shipping address-line1"
@@ -40,6 +73,7 @@ export default function AddressForm() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            onChange={handleChange}
             required
             id="city"
             name="city"
@@ -50,6 +84,7 @@ export default function AddressForm() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            onChange={handleChange}
             required
             id="postcode"
             name="postcode"
@@ -60,6 +95,7 @@ export default function AddressForm() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            onChange={handleChange}
             required
             id="country"
             name="country"
@@ -70,6 +106,7 @@ export default function AddressForm() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            onChange={handleChange}
             id="state"
             name="state"
             label="State/Province/Region"

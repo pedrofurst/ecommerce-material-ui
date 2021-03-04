@@ -6,19 +6,22 @@ import {
   Stepper,
   Typography,
 } from '@material-ui/core';
-import { useCallback, useState } from 'react';
-import AddressForm from './AddressForm/component';
-import PaymentDetails from './PaymentDetails/component';
+import { ReactElement, useCallback, useState } from 'react';
 import StepIcon from './StepIcon/component';
 import useStyles from './styles';
 import StepConnector from './StepConnector/component';
+import useChildren from '../../features/hooks/useChildren';
 
-type CheckoutPropsType = {};
+type CheckoutPropsType = {
+  children: ReactElement[];
+};
 
 function Checkout(props: CheckoutPropsType) {
+  const { children } = props;
   const classes = useStyles();
   const steps = ['Shipping', 'Payment', 'Review'];
   const [activeStep, setActiveStep] = useState(0);
+  const { getChildrenById } = useChildren(children);
 
   const handleStepNext = useCallback(() => {
     setActiveStep((currentStep) => currentStep + 1);
@@ -28,18 +31,25 @@ function Checkout(props: CheckoutPropsType) {
     setActiveStep((currentStep) => currentStep - 1);
   }, []);
 
-  function getStepContent(step: number) {
-    switch (step) {
-      case 0:
-        return <AddressForm />;
-      case 1:
-        return <PaymentDetails />;
-      case 2:
-        return null;
-      default:
-        throw new Error('Unknown step');
-    }
-  }
+  const addressForm = getChildrenById('address-form');
+  const paymentDetails = getChildrenById('payment-details');
+  const reviewPurchase = getChildrenById('review-purchase');
+
+  const getStepContent = useCallback(
+    (step: number) => {
+      switch (step) {
+        case 0:
+          return addressForm;
+        case 1:
+          return paymentDetails;
+        case 2:
+          return reviewPurchase;
+        default:
+          throw new Error('Unknown step');
+      }
+    },
+    [addressForm, paymentDetails, reviewPurchase]
+  );
 
   return (
     <Paper className={classes.checkoutContainer}>
