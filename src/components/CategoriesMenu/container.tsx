@@ -1,7 +1,7 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import useCategoryContext from '../../features/providers/category/useCategoryContext';
-import { ContainerIdType } from '../../features/types/ContainerIdType';
+import useCategoryContext from '@features/providers/category/useCategoryContext';
+import { ContainerIdType } from '@features/types/ContainerIdType';
 import CategoriesMenu from './component';
 
 function CategoriesMenuContainer(props: ContainerIdType) {

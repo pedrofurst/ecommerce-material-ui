@@ -1,8 +1,7 @@
-import React from 'react';
+import { ContainerIdType } from '@features/types/ContainerIdType';
+import useCartContext from '@features/providers/cart/useCartContext';
+import useCheckoutContext from '@features/providers/checkout/useCheckoutContext';
 import ReviewPurchase from './component';
-import { ContainerIdType } from '../../../features/types/ContainerIdType';
-import useCartContext from '../../../features/providers/cart/useCartContext';
-import useCheckoutContext from '../../../features/providers/checkout/useCheckoutContext';
 
 function ReviewPurchaseContainer(props: ContainerIdType) {
   const { cart } = useCartContext();

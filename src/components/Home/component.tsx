@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import useChildren from '../../features/hooks/useChildren';
+import useChildren from '@features/hooks/useChildren';
 
 type HomePropsType = {
   children: ReactElement;

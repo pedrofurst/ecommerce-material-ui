@@ -1,7 +1,7 @@
 import React from 'react';
-import ProductCard from '../ProductCard/component';
-import { ProductType } from '../../features/providers/product/model';
-import { CartType } from '../../features/providers/cart/model';
+import { ProductType } from '@features/providers/product/model';
+import { CartType } from '@features/providers/cart/model';
+import ProductCard from './ProductCard/component';
 
 type ProductListPropsType = {
   products: ProductType[];

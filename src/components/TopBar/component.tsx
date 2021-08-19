@@ -6,14 +6,13 @@ import {
   Typography,
   InputBase,
   Link,
-  Button,
 } from '@material-ui/core';
 import { ReactElement } from 'react';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SearchIcon from '@material-ui/icons/Search';
+import { CartType } from '@features/providers/cart/model';
+import useChildren from '@features/hooks/useChildren';
 import useStyles from './styles';
-import { CartType } from '../../features/providers/cart/model';
-import useChildren from '../../features/hooks/useChildren';
 
 type TopBarPropsType = {
   cart: CartType;
@@ -56,11 +55,6 @@ function TopBar(props: TopBarPropsType) {
           </div>
           <div className={classes.menuContainer}>
             <div className={classes.menuItem}>{categoriesMenu}</div>
-            <div className={classes.menuItem}>
-              <Button color="inherit">
-                <Typography>Favorites</Typography>
-              </Button>
-            </div>
           </div>
           <div className={classes.cartButton}>
             <IconButton

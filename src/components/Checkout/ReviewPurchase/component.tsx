@@ -1,12 +1,12 @@
 import { Typography } from '@material-ui/core';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import CreditCardOutlinedIcon from '@material-ui/icons/CreditCardOutlined';
-import { CartType } from '../../../features/providers/cart/model';
+import { CartType } from '@features/providers/cart/model';
 import {
   CreditCardType,
   ShippingAddressType,
-} from '../../../features/providers/checkout/model';
-import { ProductType } from '../../../features/providers/product/model';
+} from '@features/providers/checkout/model';
+import { ProductType } from '@features/providers/product/model';
 import useStyles from './styles';
 
 type ReviewPurchasePropsType = {

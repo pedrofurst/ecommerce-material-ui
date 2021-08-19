@@ -6,16 +6,13 @@ import {
   IconButton,
   Typography,
   Divider,
-  Checkbox,
   Tooltip,
 } from '@material-ui/core';
 import { useCallback } from 'react';
-import Favorite from '@material-ui/icons/Favorite';
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
+import { ProductType } from '@features/providers/product/model';
 import useStyles from './styles';
-import { ProductType } from '../../features/providers/product/model';
 
 type ProductCardPropsType = {
   product: ProductType;
@@ -69,7 +66,11 @@ function ProductCard(props: ProductCardPropsType) {
               {title}
             </Typography>
           </Tooltip>
-          <Typography variant="caption" color="textSecondary" className={classes.categoryText}>
+          <Typography
+            variant="caption"
+            color="textSecondary"
+            className={classes.categoryText}
+          >
             {category}
           </Typography>
         </CardContent>
@@ -77,11 +78,6 @@ function ProductCard(props: ProductCardPropsType) {
       <Divider />
       <CardActions disableSpacing className={classes.cardActionsContainer}>
         <div className={classes.addButtonContainer}>
-          <Checkbox
-            icon={<FavoriteBorder />}
-            checkedIcon={<Favorite />}
-            name="checkedH"
-          />
           <div className={classes.priceContainer}>
             <Typography className={classes.priceText}>
               ${price.toFixed(2)}

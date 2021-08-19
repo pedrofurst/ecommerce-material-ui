@@ -1,7 +1,6 @@
 import { StepIconProps } from '@material-ui/core';
 import { Check } from '@material-ui/icons';
 import clsx from 'clsx';
-import React from 'react';
 import useStyles from './styles';
 
 function StepIcon(props: StepIconProps) {

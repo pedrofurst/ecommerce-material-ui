@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import useCartContext from '../../features/providers/cart/useCartContext';
-import { ProductType } from '../../features/providers/product/model';
-import useProductContext from '../../features/providers/product/useProductContext';
-import { ContainerIdType } from '../../features/types/ContainerIdType';
+import { ProductType } from '@features/providers/product/model';
+import { ContainerIdType } from '@features/types/ContainerIdType';
+import useProductContext from '@features/providers/product/useProductContext';
+import useCartContext from '@features/providers/cart/useCartContext';
 import ProductList from './component';
 
 function ProductListContainer(props: ContainerIdType) {

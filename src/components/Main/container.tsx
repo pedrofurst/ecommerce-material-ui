@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useCallback, useEffect } from 'react';
+import TopBarContainer from '@components/TopBar/container';
+import useProductContext from '@features/providers/product/useProductContext';
+import useCategoryContext from '@features/providers/category/useCategoryContext';
 import Main from './component';
-import TopBarContainer from '../TopBar/container';
-import useProductContext from '../../features/providers/product/useProductContext';
-import useCategoryContext from '../../features/providers/category/useCategoryContext';
 
 function MainContainer() {
   const { updateProducts } = useProductContext();

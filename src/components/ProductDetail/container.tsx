@@ -1,9 +1,9 @@
 import axios from 'axios';
-import React, { useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import useCartContext from '../../features/providers/cart/useCartContext';
-import { ProductType } from '../../features/providers/product/model';
-import useProductContext from '../../features/providers/product/useProductContext';
+import useCartContext from '@features/providers/cart/useCartContext';
+import { ProductType } from '@features/providers/product/model';
+import useProductContext from '@features/providers/product/useProductContext';
 import ProductDetail from './component';
 
 interface ProductDetailContainerParamType {

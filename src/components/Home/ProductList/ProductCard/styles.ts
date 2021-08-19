@@ -45,7 +45,7 @@ export default makeStyles((theme: Theme) => ({
     display: 'flex',
     flex: 1,
     width: '100%',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   priceContainer: {
     paddingTop: theme.spacing(),

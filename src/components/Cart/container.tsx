@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
-import useCartContext from '../../features/providers/cart/useCartContext';
+import useCartContext from '@features/providers/cart/useCartContext';
 import Cart from './component';
 
 function CartContainer() {

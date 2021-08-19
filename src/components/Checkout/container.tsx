@@ -1,4 +1,3 @@
-import React from 'react';
 import Checkout from './component';
 import AddressFormContainer from './AddressForm/container';
 import PaymentDetailsContainer from './PaymentDetails/container';

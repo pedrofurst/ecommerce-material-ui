@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Grid, TextField } from '@material-ui/core';
+import { ShippingAddressType } from '@features/providers/checkout/model';
 import useStyles from './styles';
-import { ShippingAddressType } from '../../../features/providers/checkout/model';
 
 type AddressFormType = {
   updateShippingAddress: (value: ShippingAddressType) => void;
@@ -25,15 +25,16 @@ export default function AddressForm(props: AddressFormType) {
     updateShippingAddress(address);
   }, [address, updateShippingAddress]);
 
-  const handleChange = useCallback((event) => {
-    const {
-      target: { name, value },
-    } = event;
-    setAddress((currentAddress) => ({
-      ...currentAddress,
-      [name]: value,
-    }));
-  }, []);
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = event.target;
+      setAddress((currentAddress) => ({
+        ...currentAddress,
+        [name]: value,
+      }));
+    },
+    []
+  );
 
   return (
     <div className={classes.shippingAddressContainer}>

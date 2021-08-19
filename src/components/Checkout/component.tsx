@@ -7,10 +7,10 @@ import {
   Typography,
 } from '@material-ui/core';
 import { ReactElement, useCallback, useState } from 'react';
+import useChildren from '@features/hooks/useChildren';
 import StepIcon from './StepIcon/component';
 import useStyles from './styles';
 import StepConnector from './StepConnector/component';
-import useChildren from '../../features/hooks/useChildren';
 
 type CheckoutPropsType = {
   children: ReactElement[];

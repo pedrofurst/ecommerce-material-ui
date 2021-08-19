@@ -2,8 +2,8 @@ import { Button, IconButton, Paper, Typography } from '@material-ui/core';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import React, { useCallback } from 'react';
-import { ProductType } from '../../features/providers/product/model';
+import { useCallback } from 'react';
+import { ProductType } from '@features/providers/product/model';
 import useStyles from './styles';
 
 type ProductDetailPropsType = {

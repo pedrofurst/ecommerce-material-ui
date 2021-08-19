@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Grid, TextField } from '@material-ui/core';
 import 'react-credit-cards/es/styles-compiled.css';
 import Card, { Focused } from 'react-credit-cards';
+import { CreditCardType } from '@features/providers/checkout/model';
 import useStyles from './styles';
-import { CreditCardType } from '../../../features/providers/checkout/model';
 
 type PaymentDetailsPropsType = {
   updateCreditCard: (value: CreditCardType) => void;
@@ -24,22 +24,26 @@ function PaymentDetails(props: PaymentDetailsPropsType) {
     updateCreditCard(creditCard);
   }, [updateCreditCard, creditCard]);
 
-  const handleChange = useCallback((event) => {
-    const {
-      target: { name, value },
-    } = event;
-    setCreditCard((currentCreditCard) => ({
-      ...currentCreditCard,
-      [name]: value,
-    }));
-  }, []);
+  const handleChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const {
+        target: { name, value },
+      } = event;
+      setCreditCard((currentCreditCard) => ({
+        ...currentCreditCard,
+        [name]: value,
+      }));
+    },
+    []
+  );
 
-  const handleInputFocus = useCallback((event) => {
-    const {
-      target: { name },
-    } = event;
-    setFocused(name);
-  }, []);
+  const handleInputFocus = useCallback(
+    (event: React.FocusEvent<HTMLInputElement>) => {
+      const { name } = event.target;
+      setFocused(name as Focused);
+    },
+    []
+  );
 
   const handleCVCBlur = useCallback(() => {
     setFocused(undefined);

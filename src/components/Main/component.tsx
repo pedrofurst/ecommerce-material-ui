@@ -1,12 +1,12 @@
 import { ReactElement } from 'react';
 import { Container } from '@material-ui/core';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import CheckoutContainer from '@components/Checkout/container';
+import HomeContainer from '@components/Home/container';
+import ProductDetailContainer from '@components/ProductDetail/container';
+import CartContainer from '@components/Cart/container';
+import useChildren from '@features/hooks/useChildren';
 import useStyles from './styles';
-import HomeContainer from '../../pages/Home/container';
-import ProductDetailContainer from '../../pages/ProductDetail/container';
-import CartContainer from '../../pages/Cart/container';
-import useChildren from '../../features/hooks/useChildren';
-import CheckoutContainer from '../../pages/Checkout/container';
 
 type MainPropsType = {
   children: ReactElement;
