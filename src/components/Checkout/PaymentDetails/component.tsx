@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Grid, TextField } from '@material-ui/core';
 import 'react-credit-cards/es/styles-compiled.css';
 import Card, { Focused } from 'react-credit-cards';
@@ -6,35 +6,26 @@ import { CreditCardType } from '@features/providers/checkout/model';
 import useStyles from './styles';
 
 type PaymentDetailsPropsType = {
+  creditCard: CreditCardType;
   updateCreditCard: (value: CreditCardType) => void;
 };
 
 function PaymentDetails(props: PaymentDetailsPropsType) {
-  const { updateCreditCard } = props;
+  const { updateCreditCard, creditCard } = props;
   const classes = useStyles();
   const [focused, setFocused] = useState<Focused>();
-  const [creditCard, setCreditCard] = useState<CreditCardType>({
-    name: '',
-    number: '',
-    cvc: '',
-    expiry: '',
-  });
-
-  useEffect(() => {
-    updateCreditCard(creditCard);
-  }, [updateCreditCard, creditCard]);
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const {
         target: { name, value },
       } = event;
-      setCreditCard((currentCreditCard) => ({
-        ...currentCreditCard,
+      updateCreditCard({
+        ...creditCard,
         [name]: value,
-      }));
+      });
     },
-    []
+    [updateCreditCard, creditCard]
   );
 
   const handleInputFocus = useCallback(
@@ -49,14 +40,16 @@ function PaymentDetails(props: PaymentDetailsPropsType) {
     setFocused(undefined);
   }, []);
 
+  const { name, number, expiry, cvc } = creditCard;
+
   return (
     <>
       <div className={classes.cardContainer}>
         <Card
-          name={creditCard.name}
-          number={creditCard.number}
-          expiry={creditCard.expiry}
-          cvc={creditCard.cvc}
+          name={name}
+          number={number}
+          expiry={expiry}
+          cvc={cvc}
           focused={focused}
         />
       </div>
@@ -65,6 +58,7 @@ function PaymentDetails(props: PaymentDetailsPropsType) {
           <Grid item xs={12}>
             <TextField
               required
+              type="number"
               id="cardNumber"
               name="number"
               label="Card number"
@@ -72,6 +66,8 @@ function PaymentDetails(props: PaymentDetailsPropsType) {
               autoComplete="cc-number"
               onChange={handleChange}
               onFocus={handleInputFocus}
+              value={number}
+              error={number === ''}
             />
           </Grid>
           <Grid item xs={12}>
@@ -84,6 +80,8 @@ function PaymentDetails(props: PaymentDetailsPropsType) {
               autoComplete="cc-name"
               onChange={handleChange}
               onFocus={handleInputFocus}
+              value={name}
+              error={name === ''}
             />
           </Grid>
           <Grid item xs={12} md={6}>
@@ -96,21 +94,24 @@ function PaymentDetails(props: PaymentDetailsPropsType) {
               autoComplete="cc-exp"
               onChange={handleChange}
               onFocus={handleInputFocus}
-              inputProps={{ pattern: '\\d\\d/\\d\\d' }}
+              value={expiry}
+              error={expiry === ''}
             />
           </Grid>
           <Grid item xs={12} md={6}>
             <TextField
               required
+              type="number"
               id="cvc"
               name="cvc"
               label="cvc"
               fullWidth
-              autoComplete="cc-csc"
+              autoComplete="cc-cvc"
               onChange={handleChange}
               onFocus={handleInputFocus}
-              inputProps={{ maxLength: 3, pattern: '\\d{3,4}' }}
               onBlur={handleCVCBlur}
+              value={cvc}
+              error={cvc === ''}
             />
           </Grid>
         </Grid>

@@ -4,23 +4,23 @@ export default makeStyles((theme: Theme) => ({
   checkoutContainer: {
     display: 'flex',
     flexDirection: 'column',
-    height: '78vh',
     alignItems: 'center',
-    width: '80vw',
     position: 'relative',
     padding: theme.spacing(2),
+    height: '100%',
     margin: 0,
     [theme.breakpoints.down('md')]: {
       marginLeft: theme.spacing(5),
       marginRight: theme.spacing(5),
-      minHeight: '88vh',
     },
   },
   stepper: {
     padding: theme.spacing(2, 0, 2),
-    [theme.breakpoints.up('sm')]: {
-      width: '80%',
-    },
+  },
+  container: {
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'center',
   },
   actionButtonsContainer: {
     padding: theme.spacing(3, 0, 0, 3),
@@ -30,5 +30,16 @@ export default makeStyles((theme: Theme) => ({
     '& button': {
       margin: theme.spacing(),
     },
+  },
+  paymentForm: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  formContent: {
+    width: '100%',
   },
 }));

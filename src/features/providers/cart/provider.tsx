@@ -1,6 +1,5 @@
 import { PropsWithChildren, useCallback, useEffect, useState } from 'react';
 import { ProductType } from '../product/model';
-import useProductContext from '../product/useProductContext';
 
 import CartContext from './context';
 import { CartType } from './model';
@@ -9,9 +8,7 @@ const CART_KEY = '@@ECOMMERCE-CART-KEY';
 
 function CartProvider(props: PropsWithChildren<{}>) {
   const { children } = props;
-  const { products } = useProductContext();
   const [cart, setCart] = useState<CartType>({
-    date: new Date(),
     products: [],
   });
 
@@ -31,11 +28,16 @@ function CartProvider(props: PropsWithChildren<{}>) {
     }));
   }, []);
 
+  const handleClear = useCallback(() => {
+    setCart({ products: [] });
+    localStorage.removeItem(CART_KEY);
+  }, []);
+
   useEffect(() => {
-    if (products.length > 0) {
+    if (cart.products.length > 0) {
       localStorage.setItem(CART_KEY, JSON.stringify(cart));
     }
-  }, [cart, products]);
+  }, [cart]);
 
   useEffect(() => {
     const storedCart = localStorage.getItem(CART_KEY);
@@ -50,6 +52,7 @@ function CartProvider(props: PropsWithChildren<{}>) {
         cart,
         addToCart: handleAddToCart,
         removeFromCart: handleAddFromCart,
+        clear: handleClear,
       }}
     >
       {children}

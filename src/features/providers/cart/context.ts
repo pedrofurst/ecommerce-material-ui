@@ -4,11 +4,11 @@ import { CartContextType } from './model';
 
 const CartContext = React.createContext<CartContextType>({
   cart: {
-    date: new Date(),
     products: [],
   },
   addToCart: (product: ProductType) => {},
   removeFromCart: (product: ProductType) => {},
+  clear: () => {},
 });
 
 export default CartContext;

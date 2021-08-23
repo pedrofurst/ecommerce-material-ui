@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import useCategoryContext from '@features/providers/category/useCategoryContext';
 import { ContainerIdType } from '@features/types/ContainerIdType';
+import useProductContext from '@features/providers/product/useProductContext';
 import CategoriesMenu from './component';
 
 function CategoriesMenuContainer(props: ContainerIdType) {
@@ -11,6 +12,8 @@ function CategoriesMenuContainer(props: ContainerIdType) {
     updateSelectedCategory,
   } = useCategoryContext();
 
+  const { filterBy, clearFilter } = useProductContext();
+
   const history = useHistory();
 
   const handleSelectCategoryFilter = useCallback(
@@ -18,11 +21,13 @@ function CategoriesMenuContainer(props: ContainerIdType) {
       history.push('/');
       if (selectedCategory === category) {
         updateSelectedCategory('');
+        clearFilter();
       } else {
         updateSelectedCategory(category);
+        filterBy(category);
       }
     },
-    [updateSelectedCategory, history, selectedCategory]
+    [history, selectedCategory, updateSelectedCategory, clearFilter, filterBy]
   );
 
   return (

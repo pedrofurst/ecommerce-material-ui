@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Confirmation /> Should have confirmation message 1`] = `
+<div
+  className="makeStyles-confirmationContainer-1"
+>
+  <h5
+    className="MuiTypography-root MuiTypography-h5 MuiTypography-gutterBottom"
+  >
+    Thank you for your order.
+  </h5>
+  <h6
+    className="MuiTypography-root MuiTypography-subtitle1"
+  >
+    Your order number is #2001539. We have emailed your order confirmation, and will send you an update when your order has shipped.
+  </h6>
+</div>
+`;

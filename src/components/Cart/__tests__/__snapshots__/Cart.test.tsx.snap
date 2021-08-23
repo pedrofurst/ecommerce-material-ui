@@ -1,0 +1,426 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cart /> Should render correctly when there are more than one product in the cart  1`] = `
+<div
+  className="MuiPaper-root makeStyles-cartContainer-1 MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <button
+    aria-label="back"
+    className="MuiButtonBase-root MuiIconButton-root makeStyles-backButton-2"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[MockFunction]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    role="back-button"
+    tabIndex={0}
+    type="button"
+  >
+    <span
+      className="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+        />
+      </svg>
+    </span>
+    <span
+      className="MuiTouchRipple-root"
+    />
+  </button>
+  <div
+    className="makeStyles-contentContainer-3"
+  >
+    <div>
+      <div
+        className="makeStyles-rowContainer-4 product-item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={1}
+      >
+        <div
+          className="makeStyles-imageContainer-5"
+        >
+          <img
+            alt="ImageRow"
+            className="makeStyles-image-6"
+            src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+          />
+        </div>
+        <div
+          className="makeStyles-titleContainer-7"
+        >
+          <p
+            className="MuiTypography-root makeStyles-title-8 MuiTypography-body1 MuiTypography-noWrap"
+          >
+            Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+          </p>
+        </div>
+        <div
+          className="makeStyles-priceContainer-9"
+        >
+          <p
+            className="MuiTypography-root makeStyles-price-10 MuiTypography-body1"
+          >
+            $
+            109.95
+          </p>
+          <button
+            aria-label="remove from shopping cart"
+            className="MuiButtonBase-root MuiIconButton-root makeStyles-removeButton-11 MuiIconButton-colorSecondary"
+            disabled={false}
+            id="remove-from-cart-button"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M22.73 22.73L2.77 2.77 2 2l-.73-.73L0 2.54l4.39 4.39 2.21 4.66-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h7.46l1.38 1.38c-.5.36-.83.95-.83 1.62 0 1.1.89 2 1.99 2 .67 0 1.26-.33 1.62-.84L21.46 24l1.27-1.27zM7.42 15c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h2.36l2 2H7.42zm8.13-2c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H6.54l9.01 9zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+      <hr
+        className="MuiDivider-root"
+      />
+    </div>
+    <div>
+      <div
+        className="makeStyles-rowContainer-4 product-item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={2}
+      >
+        <div
+          className="makeStyles-imageContainer-5"
+        >
+          <img
+            alt="ImageRow"
+            className="makeStyles-image-6"
+            src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+          />
+        </div>
+        <div
+          className="makeStyles-titleContainer-7"
+        >
+          <p
+            className="MuiTypography-root makeStyles-title-8 MuiTypography-body1 MuiTypography-noWrap"
+          >
+            Mens Casual Premium Slim Fit T-Shirts 
+          </p>
+        </div>
+        <div
+          className="makeStyles-priceContainer-9"
+        >
+          <p
+            className="MuiTypography-root makeStyles-price-10 MuiTypography-body1"
+          >
+            $
+            22.30
+          </p>
+          <button
+            aria-label="remove from shopping cart"
+            className="MuiButtonBase-root MuiIconButton-root makeStyles-removeButton-11 MuiIconButton-colorSecondary"
+            disabled={false}
+            id="remove-from-cart-button"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M22.73 22.73L2.77 2.77 2 2l-.73-.73L0 2.54l4.39 4.39 2.21 4.66-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h7.46l1.38 1.38c-.5.36-.83.95-.83 1.62 0 1.1.89 2 1.99 2 .67 0 1.26-.33 1.62-.84L21.46 24l1.27-1.27zM7.42 15c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h2.36l2 2H7.42zm8.13-2c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H6.54l9.01 9zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="makeStyles-bottomContainer-15"
+    >
+      <div
+        className="makeStyles-totalRow-14"
+      >
+        <p
+          className="MuiTypography-root makeStyles-total-12 MuiTypography-body1"
+        >
+          Total (2 Items):
+        </p>
+        <p
+          className="MuiTypography-root makeStyles-price-10 MuiTypography-body1"
+        >
+          $
+          132.25
+        </p>
+      </div>
+      <div
+        className="makeStyles-proceedToCheckoutContainer-13"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
+          disabled={false}
+          id="procced-to-checkout-button"
+          onBlur={[Function]}
+          onClick={[MockFunction]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            Proceed to checkout
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Cart /> Should render correctly when there is one product in the cart  1`] = `
+<div
+  className="MuiPaper-root makeStyles-cartContainer-1 MuiPaper-elevation1 MuiPaper-rounded"
+>
+  <button
+    aria-label="back"
+    className="MuiButtonBase-root MuiIconButton-root makeStyles-backButton-2"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[MockFunction]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    role="back-button"
+    tabIndex={0}
+    type="button"
+  >
+    <span
+      className="MuiIconButton-label"
+    >
+      <svg
+        aria-hidden={true}
+        className="MuiSvgIcon-root"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+        />
+      </svg>
+    </span>
+  </button>
+  <div
+    className="makeStyles-contentContainer-3"
+  >
+    <div>
+      <div
+        className="makeStyles-rowContainer-4 product-item"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={1}
+      >
+        <div
+          className="makeStyles-imageContainer-5"
+        >
+          <img
+            alt="ImageRow"
+            className="makeStyles-image-6"
+            src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+          />
+        </div>
+        <div
+          className="makeStyles-titleContainer-7"
+        >
+          <p
+            className="MuiTypography-root makeStyles-title-8 MuiTypography-body1 MuiTypography-noWrap"
+          >
+            Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+          </p>
+        </div>
+        <div
+          className="makeStyles-priceContainer-9"
+        >
+          <p
+            className="MuiTypography-root makeStyles-price-10 MuiTypography-body1"
+          >
+            $
+            109.95
+          </p>
+          <button
+            aria-label="remove from shopping cart"
+            className="MuiButtonBase-root MuiIconButton-root makeStyles-removeButton-11 MuiIconButton-colorSecondary"
+            disabled={false}
+            id="remove-from-cart-button"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiIconButton-label"
+            >
+              <svg
+                aria-hidden={true}
+                className="MuiSvgIcon-root"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M22.73 22.73L2.77 2.77 2 2l-.73-.73L0 2.54l4.39 4.39 2.21 4.66-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h7.46l1.38 1.38c-.5.36-.83.95-.83 1.62 0 1.1.89 2 1.99 2 .67 0 1.26-.33 1.62-.84L21.46 24l1.27-1.27zM7.42 15c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h2.36l2 2H7.42zm8.13-2c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H6.54l9.01 9zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <hr
+        className="MuiDivider-root"
+      />
+    </div>
+    <div
+      className="makeStyles-bottomContainer-15"
+    >
+      <div
+        className="makeStyles-totalRow-14"
+      >
+        <p
+          className="MuiTypography-root makeStyles-total-12 MuiTypography-body1"
+        >
+          Total (1 Item):
+        </p>
+        <p
+          className="MuiTypography-root makeStyles-price-10 MuiTypography-body1"
+        >
+          $
+          109.95
+        </p>
+      </div>
+      <div
+        className="makeStyles-proceedToCheckoutContainer-13"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary"
+          disabled={false}
+          id="procced-to-checkout-button"
+          onBlur={[Function]}
+          onClick={[MockFunction]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            Proceed to checkout
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

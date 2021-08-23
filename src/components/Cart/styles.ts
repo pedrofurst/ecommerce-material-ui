@@ -3,10 +3,9 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export default makeStyles((theme: Theme) => ({
   cartContainer: {
     display: 'flex',
-    minHeight: '78vh',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '80vw',
     position: 'relative',
     overflow: 'hidden',
 
@@ -26,6 +25,7 @@ export default makeStyles((theme: Theme) => ({
     height: '100%',
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'space-between',
     padding: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(5),
@@ -33,6 +33,7 @@ export default makeStyles((theme: Theme) => ({
   },
 
   rowContainer: {
+    cursor: 'pointer',
     display: 'grid',
     gridTemplateRows: '50px 128px 1fr',
     gridTemplateAreas: `
@@ -43,7 +44,7 @@ export default makeStyles((theme: Theme) => ({
     padding: theme.spacing(4),
     width: '100%',
     alignItems: 'center',
-    borderBottom: '1px solid #e6e6e6',
+
     flexDirection: 'column',
     [theme.breakpoints.up('sm')]: {
       flexDirection: 'row',
@@ -113,17 +114,8 @@ export default makeStyles((theme: Theme) => ({
     fontWeight: 'bold',
     textAlign: 'end',
   },
-  emptyCartContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%',
-  },
-  emptyCartText: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
+
+
   proceedToCheckoutContainer: {
     display: 'flex',
     flex: 1,
@@ -154,5 +146,6 @@ export default makeStyles((theme: Theme) => ({
     [theme.breakpoints.up('sm')]: {
       padding: theme.spacing(4),
     },
+    borderTop: '1px solid #e6e6e6',
   },
 }));

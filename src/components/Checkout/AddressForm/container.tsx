@@ -4,8 +4,13 @@ import { ContainerIdType } from '@features/types/ContainerIdType';
 import AddressForm from './component';
 
 function AddressFormContainer(props: ContainerIdType) {
-  const { updateShippingAddress } = useCheckoutContext();
-  return <AddressForm updateShippingAddress={updateShippingAddress} />;
+  const { updateShippingAddress, shippingAddress } = useCheckoutContext();
+  return (
+    <AddressForm
+      updateShippingAddress={updateShippingAddress}
+      shippingAddress={shippingAddress}
+    />
+  );
 }
 
 export default AddressFormContainer;

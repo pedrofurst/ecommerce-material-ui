@@ -1,33 +1,30 @@
-import axios from 'axios';
 import { useCallback, useEffect } from 'react';
 import TopBarContainer from '@components/TopBar/container';
 import useProductContext from '@features/providers/product/useProductContext';
 import useCategoryContext from '@features/providers/category/useCategoryContext';
+import useApi from '@features/hooks/useApi';
 import Main from './component';
 
 function MainContainer() {
   const { updateProducts } = useProductContext();
   const { updateCategories } = useCategoryContext();
+  const { loadProducts, loadCategories } = useApi();
 
-  const loadProducts = useCallback(async () => {
-    const response = await axios.get('https://fakestoreapi.com/products');
-    updateProducts(response.data);
-  }, [updateProducts]);
+  const initializeProducts = useCallback(async () => {
+    updateProducts(await loadProducts());
+  }, [loadProducts, updateProducts]);
 
-  const loadCategories = useCallback(async () => {
-    const response = await axios.get(
-      'https://fakestoreapi.com/products/categories'
-    );
-    updateCategories(response.data);
-  }, [updateCategories]);
+  const initializeCategories = useCallback(async () => {
+    updateCategories(await loadCategories());
+  }, [loadCategories, updateCategories]);
 
   useEffect(() => {
-    loadProducts();
-  }, [loadProducts]);
+    initializeProducts();
+  }, [initializeProducts]);
 
   useEffect(() => {
-    loadCategories();
-  }, [loadCategories]);
+    initializeCategories();
+  }, [initializeCategories]);
 
   return (
     <Main>

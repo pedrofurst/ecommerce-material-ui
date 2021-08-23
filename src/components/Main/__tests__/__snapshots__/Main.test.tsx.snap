@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Main /> Should renders main component properly 1`] = `
+<div
+  className="makeStyles-mainContainer-1"
+>
+  <div
+    className="makeStyles-contentContainer-2"
+  >
+    <div
+      className="MuiContainer-root makeStyles-content-3 MuiContainer-maxWidthLg"
+    >
+      <div
+        className="makeStyles-productListContainer-4"
+      />
+    </div>
+  </div>
+</div>
+`;

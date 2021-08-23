@@ -4,12 +4,10 @@ import {
   IconButton,
   Toolbar,
   Typography,
-  InputBase,
   Link,
 } from '@material-ui/core';
 import { ReactElement } from 'react';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import SearchIcon from '@material-ui/icons/Search';
 import { CartType } from '@features/providers/cart/model';
 import useChildren from '@features/hooks/useChildren';
 import useStyles from './styles';
@@ -28,7 +26,7 @@ function TopBar(props: TopBarPropsType) {
 
   const classes = useStyles();
   return (
-    <AppBar position="fixed" className={classes.appBar}>
+    <AppBar className={classes.appBar}>
       <Toolbar disableGutters className={classes.toolBar}>
         <div className={classes.toolbarContainer}>
           <div className={classes.logoContainer}>
@@ -38,24 +36,7 @@ function TopBar(props: TopBarPropsType) {
               </Typography>
             </Link>
           </div>
-          <div className={classes.searchContainer}>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </div>
-          </div>
-          <div className={classes.menuContainer}>
-            <div className={classes.menuItem}>{categoriesMenu}</div>
-          </div>
+          <div className={classes.menuItem}>{categoriesMenu}</div>
           <div className={classes.cartButton}>
             <IconButton
               aria-label="show cart count"

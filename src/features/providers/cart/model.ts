@@ -4,9 +4,9 @@ export type CartContextType = {
   cart: CartType;
   addToCart: (product: ProductType) => void;
   removeFromCart: (product: ProductType) => void;
+  clear: () => void;
 };
 
 export type CartType = {
-  date: Date;
   products: ProductType[];
 };

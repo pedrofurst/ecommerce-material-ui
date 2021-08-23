@@ -1,52 +1,49 @@
-import { PropsWithChildren, useCallback, useEffect, useState } from 'react';
-import useCategoryContext from '../category/useCategoryContext';
-
+import { PropsWithChildren, useCallback, useState } from 'react';
 import ProductContext from './context';
-import { FilterTypeEnum, ProductType } from './model';
+import { ProductType } from './model';
 
 function ProductProvider(props: PropsWithChildren<{}>) {
   const { children } = props;
-  const { selectedCategory } = useCategoryContext();
   const [products, setProducts] = useState<ProductType[]>([]);
-  const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<ProductType>();
 
   const handleUpdateProducts = useCallback((value: ProductType[]) => {
-    setProducts(value);
-    setFilteredProducts(value);
+    setProducts(
+      value.map((product: ProductType) => ({ ...product, matchesSearch: true }))
+    );
   }, []);
 
   const handleUpdateSelectedProduct = useCallback((value: ProductType) => {
     setSelectedProduct(value);
   }, []);
 
-  const handleFilterBy = useCallback(
-    (filterType: FilterTypeEnum) => {
-      if (filterType === FilterTypeEnum.CATEGORIES && selectedCategory) {
-        setFilteredProducts(
-          products.filter(
-            (product: ProductType) => product.category === selectedCategory
-          )
-        );
-      } else {
-        setFilteredProducts(products);
-      }
-    },
-    [products, selectedCategory]
-  );
+  const handleFilterBy = useCallback((selectedCategory: string) => {
+    setProducts((currentProducts: ProductType[]) =>
+      [...currentProducts].map((product: ProductType) => ({
+        ...product,
+        matchesSearch: product.category === selectedCategory,
+      }))
+    );
+  }, []);
 
-  useEffect(() => {
-    handleFilterBy(FilterTypeEnum.CATEGORIES);
-  }, [selectedCategory, handleFilterBy]);
+  const handleClearFilter = useCallback(() => {
+    setProducts((currentProducts: ProductType[]) =>
+      [...currentProducts].map((product: ProductType) => ({
+        ...product,
+        matchesSearch: true,
+      }))
+    );
+  }, []);
 
   return (
     <ProductContext.Provider
       value={{
-        products: filteredProducts,
+        products: products.filter((product) => product.matchesSearch),
         selectedProduct,
         updateProducts: handleUpdateProducts,
         updateSelectedProduct: handleUpdateSelectedProduct,
         filterBy: handleFilterBy,
+        clearFilter: handleClearFilter,
       }}
     >
       {children}

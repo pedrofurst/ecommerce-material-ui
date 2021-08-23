@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import { Container } from '@material-ui/core';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import CheckoutContainer from '@components/Checkout/container';
-import HomeContainer from '@components/Home/container';
+import ProductListContainer from '@components/ProductList/container';
 import ProductDetailContainer from '@components/ProductDetail/container';
 import CartContainer from '@components/Cart/container';
 import useChildren from '@features/hooks/useChildren';
@@ -23,10 +23,10 @@ function Main(props: MainPropsType) {
     <BrowserRouter>
       <div className={classes.mainContainer}>
         {topBar}
-        <main className={classes.content}>
-          <Container maxWidth="lg" className={classes.container} disableGutters>
+        <div className={classes.contentContainer}>
+          <Container className={classes.content}>
             <Switch>
-              <Route path="/" exact component={HomeContainer} />
+              <Route path="/" exact component={ProductListContainer} />
               <Route
                 path="/product/:productId"
                 component={ProductDetailContainer}
@@ -35,7 +35,7 @@ function Main(props: MainPropsType) {
               <Route path="/checkout" component={CheckoutContainer} />
             </Switch>
           </Container>
-        </main>
+        </div>
       </div>
     </BrowserRouter>
   );

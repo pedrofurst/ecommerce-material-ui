@@ -4,7 +4,6 @@ export default makeStyles((theme: Theme) => ({
   root: {
     minWidth: 304,
     maxWidth: 304,
-    margin: theme.spacing(),
   },
   cardActionArea: {
     height: 350,

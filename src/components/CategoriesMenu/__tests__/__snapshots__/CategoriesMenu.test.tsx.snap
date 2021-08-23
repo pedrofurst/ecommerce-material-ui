@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CategoriesMenu /> Should render categories menu 1`] = `
+<button
+  className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-categoriesMenuContainer-1 MuiButton-colorInherit"
+  disabled={false}
+  id="categories-menu-button"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="MuiButton-label"
+  >
+    <p
+      aria-haspopup="true"
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      Categories
+    </p>
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      />
+    </svg>
+  </span>
+</button>
+`;
+
+exports[`<CategoriesMenu /> Should render categories menu with categories 1`] = `
+<button
+  className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-categoriesMenuContainer-1 MuiButton-colorInherit"
+  disabled={false}
+  id="categories-menu-button"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="MuiButton-label"
+  >
+    <p
+      aria-haspopup="true"
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      Categories
+    </p>
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      />
+    </svg>
+  </span>
+  <span
+    className="MuiTouchRipple-root"
+  />
+</button>
+`;
+
+exports[`<CategoriesMenu /> Should render categories menu with selectedCategory 1`] = `
+<button
+  className="MuiButtonBase-root MuiButton-root MuiButton-text makeStyles-categoriesMenuContainer-1 MuiButton-colorInherit"
+  disabled={false}
+  id="categories-menu-button"
+  onBlur={[Function]}
+  onClick={[Function]}
+  onDragLeave={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  tabIndex={0}
+  type="button"
+>
+  <span
+    className="MuiButton-label"
+  >
+    <p
+      aria-haspopup="true"
+      className="MuiTypography-root MuiTypography-body1"
+    >
+      Category1
+    </p>
+    <svg
+      aria-hidden={true}
+      className="MuiSvgIcon-root"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+      />
+    </svg>
+  </span>
+</button>
+`;

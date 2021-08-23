@@ -1,35 +1,45 @@
 import {
   Button,
+  Container,
   Paper,
   Step,
   StepLabel,
   Stepper,
   Typography,
 } from '@material-ui/core';
-import { ReactElement, useCallback, useState } from 'react';
+import { ReactElement, useCallback, useEffect, useState } from 'react';
 import useChildren from '@features/hooks/useChildren';
+import Confirmation from '@components/Confirmation/component';
 import StepIcon from './StepIcon/component';
 import useStyles from './styles';
 import StepConnector from './StepConnector/component';
 
 type CheckoutPropsType = {
   children: ReactElement[];
+  onClearCart: () => void;
 };
 
 function Checkout(props: CheckoutPropsType) {
-  const { children } = props;
+  const { children, onClearCart } = props;
   const classes = useStyles();
   const steps = ['Shipping', 'Payment', 'Review'];
   const [activeStep, setActiveStep] = useState(0);
   const { getChildrenById } = useChildren(children);
 
-  const handleStepNext = useCallback(() => {
+  const handleStepNext = useCallback((e: React.FormEvent) => {
+    e.preventDefault();
     setActiveStep((currentStep) => currentStep + 1);
   }, []);
 
   const handleStepBack = useCallback(() => {
     setActiveStep((currentStep) => currentStep - 1);
   }, []);
+
+  useEffect(() => {
+    if (activeStep === steps.length) {
+      onClearCart();
+    }
+  }, [activeStep, onClearCart, steps.length]);
 
   const addressForm = getChildrenById('address-form');
   const paymentDetails = getChildrenById('payment-details');
@@ -68,36 +78,25 @@ function Checkout(props: CheckoutPropsType) {
           </Step>
         ))}
       </Stepper>
-      <>
+      <Container className={classes.container}>
         {activeStep === steps.length ? (
-          <>
-            <Typography variant="h5" gutterBottom>
-              Thank you for your order.
-            </Typography>
-            <Typography variant="subtitle1">
-              Your order number is #2001539. We have emailed your order
-              confirmation, and will send you an update when your order has
-              shipped.
-            </Typography>
-          </>
+          <Confirmation />
         ) : (
-          <>
-            {getStepContent(activeStep)}
+          <form onSubmit={handleStepNext} className={classes.paymentForm}>
+            <div className={classes.formContent}>
+              {getStepContent(activeStep)}
+            </div>
             <div className={classes.actionButtonsContainer}>
               {activeStep !== 0 && (
                 <Button onClick={handleStepBack}>Back</Button>
               )}
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={handleStepNext}
-              >
-                {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+              <Button variant="outlined" color="primary" type="submit">
+                {activeStep === steps.length - 1 ? 'Confirm' : 'Next'}
               </Button>
             </div>
-          </>
+          </form>
         )}
-      </>
+      </Container>
     </Paper>
   );
 }

@@ -41,6 +41,7 @@ function CategoriesMenu(props: CategoriesMenuPropsType) {
         className={classes.categoriesMenuContainer}
         color="inherit"
         onClick={handlePopoverOpen}
+        id="categories-menu-button"
       >
         <Typography
           aria-owns={open ? 'mouse-over-popover' : undefined}
@@ -71,6 +72,7 @@ function CategoriesMenu(props: CategoriesMenuPropsType) {
               key={category}
               button
               onClick={handleSelectCategory(category)}
+              className="category-item"
             >
               <Typography className={classes.categoryText}>
                 {category}

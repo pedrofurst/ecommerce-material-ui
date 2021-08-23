@@ -1,9 +1,9 @@
-import axios from 'axios';
 import { useEffect, useCallback } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import useCartContext from '@features/providers/cart/useCartContext';
 import { ProductType } from '@features/providers/product/model';
 import useProductContext from '@features/providers/product/useProductContext';
+import useApi from '@features/hooks/useApi';
 import ProductDetail from './component';
 
 interface ProductDetailContainerParamType {
@@ -14,17 +14,16 @@ function ProductDetailContainer() {
   const { cart, addToCart, removeFromCart } = useCartContext();
   const { productId } = useParams<ProductDetailContainerParamType>();
   const history = useHistory();
+  const { loadProduct } = useApi();
 
   useEffect(() => {
     (async () => {
       if (productId && !selectedProduct) {
-        const response = await axios.get(
-          `https://fakestoreapi.com/products/${productId}`
-        );
-        updateSelectedProduct(response.data);
+        const response = await loadProduct(productId);
+        updateSelectedProduct(response);
       }
     })();
-  }, [productId, selectedProduct, updateSelectedProduct]);
+  }, [productId, selectedProduct, updateSelectedProduct, loadProduct]);
 
   const handleGoBack = useCallback(() => history.goBack(), [history]);
 

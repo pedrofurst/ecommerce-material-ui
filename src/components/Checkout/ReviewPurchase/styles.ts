@@ -1,9 +1,6 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 
 export default makeStyles((theme: Theme) => ({
-  reviewPurchaseContainer: {
-    width: '80%',
-  },
   productContainer: {
     maxHeight: '15vh',
     overflowY: 'auto',
@@ -60,5 +57,13 @@ export default makeStyles((theme: Theme) => ({
   },
   productTitleContainer: {
     overflow: 'hidden',
+  },
+  totalContainer: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+  totalPrice: {
+    fontSize: '1.5em',
+    fontWeight: 'bold',
   },
 }));

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmptyCart /> Should have empty cart message 1`] = `
+<div
+  className="makeStyles-emptyCartContainer-1"
+>
+  <p
+    className="MuiTypography-root makeStyles-emptyCartText-2 MuiTypography-body1"
+  >
+    Your cart is empty.
+  </p>
+</div>
+`;

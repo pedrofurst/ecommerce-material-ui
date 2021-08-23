@@ -3,10 +3,10 @@ import { makeStyles, Theme } from '@material-ui/core/styles';
 export default makeStyles((theme: Theme) => ({
   productDetailContainer: {
     display: 'grid',
-    width: '80vw',
     overflow: 'hidden',
     position: 'relative',
     alignItems: 'center',
+    height: '100%',
     margin: 0,
     padding: theme.spacing(2),
     paddingTop: theme.spacing(5),
@@ -22,7 +22,6 @@ export default makeStyles((theme: Theme) => ({
     "button"
   `,
     [theme.breakpoints.up('sm')]: {
-      height: '78vh',
       paddingTop: 0,
       gridTemplate: `
       "image title" 

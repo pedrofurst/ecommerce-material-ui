@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Typography } from '@material-ui/core';
 import LocationOnOutlinedIcon from '@material-ui/icons/LocationOnOutlined';
 import CreditCardOutlinedIcon from '@material-ui/icons/CreditCardOutlined';
@@ -30,8 +31,14 @@ function ReviewPurchase(props: ReviewPurchasePropsType) {
   const { number } = creditCard;
   const { products } = cart;
   const classes = useStyles();
+
+  const total = useMemo(
+    () => products.reduce((acc, product) => acc + product.price, 0),
+    [products]
+  );
+
   return (
-    <div className={classes.reviewPurchaseContainer}>
+    <>
       <div className={classes.rowInfo}>
         <Typography>Shipping Detail</Typography>
         <div className={classes.rowContent}>
@@ -46,6 +53,9 @@ function ReviewPurchase(props: ReviewPurchasePropsType) {
         </div>
       </div>
       <div className={classes.productContainer}>
+        <Typography align="center">
+          {`${products.length} ${products.length > 1 ? 'items' : 'item'}`}
+        </Typography>
         {products.map((product: ProductType) => (
           <div key={product.id} className={classes.productRow}>
             <div className={classes.imageContainer}>
@@ -71,15 +81,20 @@ function ReviewPurchase(props: ReviewPurchasePropsType) {
           </div>
           <div className={classes.locationInfoContainer}>
             <Typography>
-              {`**** **** **** ${number.substr(
-                number.length - 4,
-                number.length - 1
+              {`**** **** **** **${number.substr(
+                number.length - 2,
+                number.length
               )}`}
             </Typography>
           </div>
         </div>
+        <div className={classes.totalContainer}>
+          <Typography className={classes.totalPrice}>
+            You will pay ${total.toFixed(2)}
+          </Typography>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,120 +1,124 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import { Grid, TextField } from '@material-ui/core';
 import { ShippingAddressType } from '@features/providers/checkout/model';
-import useStyles from './styles';
 
 type AddressFormType = {
   updateShippingAddress: (value: ShippingAddressType) => void;
+  shippingAddress: ShippingAddressType;
 };
 
 export default function AddressForm(props: AddressFormType) {
-  const classes = useStyles();
-  const { updateShippingAddress } = props;
-
-  const [address, setAddress] = useState<ShippingAddressType>({
-    firstName: '',
-    lastName: '',
-    streetAddress: '',
-    city: '',
-    postcode: '',
-    country: '',
-    state: '',
-  });
-
-  useEffect(() => {
-    updateShippingAddress(address);
-  }, [address, updateShippingAddress]);
+  const { updateShippingAddress, shippingAddress } = props;
 
   const handleChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event.target;
-      setAddress((currentAddress) => ({
-        ...currentAddress,
-        [name]: value,
-      }));
+      updateShippingAddress({ ...shippingAddress, [name]: value });
     },
-    []
+    [updateShippingAddress, shippingAddress]
   );
 
+  const {
+    firstName,
+    lastName,
+    streetAddress,
+    city,
+    postcode,
+    country,
+    state,
+  } = shippingAddress;
+
   return (
-    <div className={classes.shippingAddressContainer}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            onChange={handleChange}
-            required
-            id="first-name"
-            name="firstName"
-            label="First name"
-            autoComplete="given-name"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            onChange={handleChange}
-            required
-            id="last-name"
-            name="lastName"
-            label="Last name"
-            autoComplete="family-name"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            onChange={handleChange}
-            required
-            id="street-address"
-            name="streetAddress"
-            label="Street Address"
-            fullWidth
-            autoComplete="shipping address-line1"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            onChange={handleChange}
-            required
-            id="city"
-            name="city"
-            label="Town / City"
-            fullWidth
-            autoComplete="shipping address-level2"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            onChange={handleChange}
-            required
-            id="postcode"
-            name="postcode"
-            label="Postcode"
-            fullWidth
-            autoComplete="shipping postal-code"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            onChange={handleChange}
-            required
-            id="country"
-            name="country"
-            label="Country"
-            fullWidth
-            autoComplete="shipping country"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            onChange={handleChange}
-            id="state"
-            name="state"
-            label="State/Province/Region"
-            fullWidth
-          />
-        </Grid>
+    <Grid container spacing={3}>
+      <Grid item xs={12} sm={6}>
+        <TextField
+          onChange={handleChange}
+          required
+          id="first-name"
+          name="firstName"
+          label="First name"
+          autoComplete="given-name"
+          value={firstName}
+          error={firstName === ''}
+          fullWidth
+        />
       </Grid>
-    </div>
+      <Grid item xs={12} sm={6}>
+        <TextField
+          onChange={handleChange}
+          required
+          id="last-name"
+          name="lastName"
+          label="Last name"
+          autoComplete="family-name"
+          value={lastName}
+          error={lastName === ''}
+          fullWidth
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <TextField
+          onChange={handleChange}
+          required
+          id="street-address"
+          name="streetAddress"
+          label="Street Address"
+          autoComplete="shipping address-line1"
+          value={streetAddress}
+          error={streetAddress === ''}
+          fullWidth
+        />
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <TextField
+          onChange={handleChange}
+          required
+          id="city"
+          name="city"
+          label="Town / City"
+          value={city}
+          error={city === ''}
+          autoComplete="shipping address-level2"
+          fullWidth
+        />
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <TextField
+          onChange={handleChange}
+          required
+          id="postcode"
+          name="postcode"
+          label="Postcode"
+          autoComplete="shipping postal-code"
+          value={postcode}
+          error={postcode === ''}
+          fullWidth
+        />
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <TextField
+          onChange={handleChange}
+          required
+          id="country"
+          name="country"
+          label="Country"
+          fullWidth
+          autoComplete="shipping country"
+          value={country}
+          error={country === ''}
+        />
+      </Grid>
+      <Grid item xs={12} sm={6}>
+        <TextField
+          onChange={handleChange}
+          id="state"
+          name="state"
+          label="State/Province/Region"
+          value={state}
+          error={state === ''}
+          fullWidth
+        />
+      </Grid>
+    </Grid>
   );
 }

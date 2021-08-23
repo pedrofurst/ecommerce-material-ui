@@ -6,22 +6,12 @@ export default makeStyles((theme: Theme) => ({
     minHeight: 64,
   },
   toolbarContainer: {
-    display: 'grid',
+    display: 'flex',
     maxWidth: 1280,
     margin: 'auto',
     width: '100%',
     alignItems: 'center',
-    gridTemplate: `
-    "logo search cart"
-  `,
-    [theme.breakpoints.up('md')]: {
-      gridTemplateRows: '1fr 1fr',
-      gridTemplateColumns: '30% 40% 30%',
-      gridTemplate: `
-      "logo search cart "
-      "menu search cart" 
-    `,
-    },
+    justifyContent: 'space-between',
   },
   topBarTitle: {
     fontWeight: 'bold',
@@ -29,12 +19,10 @@ export default makeStyles((theme: Theme) => ({
     paddingLeft: theme.spacing(),
   },
   appBar: {
+    position: 'relative',
     background:
       'linear-gradient(90deg, rgba(	2, 98, 157,1) 1%, rgba(24,144,133, 1) 50%, rgba(	2, 98, 157,1) 100%)',
     color: 'white',
-    [theme.breakpoints.up('md')]: {
-      maxHeight: 100,
-    },
     padding: '0 16px',
   },
   searchContainer: {
@@ -65,18 +53,6 @@ export default makeStyles((theme: Theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  inputRoot: {
-    color: 'inherit',
-  },
-  inputInput: {
-    padding: theme.spacing(1, 0, 1, 1),
-    paddingRight: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
   logoContainer: {
     gridArea: 'logo',
   },
@@ -85,13 +61,7 @@ export default makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
   },
-  menuContainer: {
-    gridArea: 'menu',
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-    },
-  },
+
   menuItem: {
     display: 'flex',
     padding: theme.spacing(),
