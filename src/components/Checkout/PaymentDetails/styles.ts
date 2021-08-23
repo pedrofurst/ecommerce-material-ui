@@ -6,5 +6,9 @@ export default makeStyles((theme: Theme) => ({
       paddingTop: theme.spacing(6),
     },
   },
-  cardContainer: {},
+  cardContainer: {
+    [theme.breakpoints.down(480)]: {
+      display: 'none',
+    },
+  },
 }));
