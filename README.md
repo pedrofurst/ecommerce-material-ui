@@ -2,6 +2,10 @@
 
 Project developed for studies in react
 
+### Backend mock
+
+https://fakestoreapi.com/
+
 ### Heroku
 
 `https://ecommerce-material-ui.herokuapp.com/`
