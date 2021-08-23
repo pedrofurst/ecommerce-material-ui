@@ -8,7 +8,7 @@ https://fakestoreapi.com/
 
 ### Heroku
 
-`https://ecommerce-material-ui.herokuapp.com/`
+https://ecommerce-material-ui.herokuapp.com/
 
 ### Stack
 
